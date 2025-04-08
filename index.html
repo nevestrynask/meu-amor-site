@@ -1,7 +1,3 @@
-from zipfile import ZipFile
-
-# HTML com as imagens flutuantes via links do Imgur
-floating_photos_html_imgur = """
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -69,7 +65,9 @@ floating_photos_html_imgur = """
       position: absolute;
       width: 100px;
       height: auto;
-      opacity: 0.8;
+      opacity: 0.9;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(255, 192, 203, 0.6);
       animation: float 15s infinite ease-in-out;
     }
 
@@ -90,6 +88,7 @@ floating_photos_html_imgur = """
   <div id="contador">Carregando...</div>
   <div class="hearts">💗 💖 💕 💞 💓</div>
 
+  <!-- Fotos flutuantes -->
   <img src="https://i.imgur.com/4EIklJk.jpeg" class="floating float1">
   <img src="https://i.imgur.com/cWA0VkC.jpeg" class="floating float2">
   <img src="https://i.imgur.com/FhjNUJO.jpeg" class="floating float3">
@@ -116,16 +115,3 @@ floating_photos_html_imgur = """
   </script>
 </body>
 </html>
-"""
-
-# Salvar HTML
-html_path = "/mnt/data/index.html"
-with open(html_path, "w", encoding="utf-8") as f:
-    f.write(floating_photos_html_imgur)
-
-# Criar zip com o HTML
-zip_path = "/mnt/data/contador_romantico_com_fotos_imgur.zip"
-with ZipFile(zip_path, "w") as zipf:
-    zipf.write(html_path, arcname="index.html")
-
-zip_pa
